@@ -28,6 +28,8 @@ public class Equipo {
 
     private double defensa;
 
+    private int dato;
+
     @OneToOne(mappedBy = "equipo", cascade = CascadeType.ALL, orphanRemoval = true)
     private Posicion posicion;
 
