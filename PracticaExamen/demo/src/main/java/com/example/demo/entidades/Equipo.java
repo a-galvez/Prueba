@@ -8,17 +8,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "equipos")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Equipo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Column(name = "codigoEquipo")
     private int codigoEquipo;
 
@@ -28,20 +33,9 @@ public class Equipo {
 
     private double defensa;
 
-    private int dato;
 
     @OneToOne(mappedBy = "equipo", cascade = CascadeType.ALL, orphanRemoval = true)
     private Posicion posicion;
 
-    public Equipo(){
-
-    }
-
-    public Equipo(int codigoEquipo, String nombre, double ataque, double defensa, Posicion posicion) {
-        this.codigoEquipo = codigoEquipo;
-        this.nombre = nombre;
-        this.ataque = ataque;
-        this.defensa = defensa;
-        this.posicion = posicion;
-    }
+   
 }
